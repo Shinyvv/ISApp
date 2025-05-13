@@ -1,30 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { AuthGuard } from '../../components/shared/AuthGuard';
+import { AdminNavbar } from '../../components/admin/AdminNavbar';
+import { StatsPanel } from '../../components/admin/StatsPanel';
 ---
 
 <Layout>
   <AuthGuard client:load requiredRole="admin">
     <div class="min-h-screen bg-gray-100">
+      <AdminNavbar client:load />
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 class="text-3xl font-bold text-gray-900 mb-8">Admin Dashboard</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <StatsPanel client:load />
           <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold mb-4">User Statistics</h2>
-            <p class="text-gray-600">Total Users: 100</p>
-            <p class="text-gray-600">Active Users: 75</p>
-          </div>
-          <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold mb-4">System Status</h2>
-            <p class="text-green-600">All systems operational</p>
-          </div>
-          <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold mb-4">Recent Activity</h2>
-            <ul class="space-y-2">
-              <li class="text-gray-600">New user registration</li>
-              <li class="text-gray-600">Content update</li>
-              <li class="text-gray-600">System backup completed</li>
-            </ul>
+            <h2 class="text-xl font-semibold mb-4">Quick Actions</h2>
+            <div class="space-y-4">
+              <a href="/admin/users" class="block p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100">
+                <h3 class="font-medium text-indigo-700">Manage Users</h3>
+                <p class="text-sm text-indigo-500">View and manage user accounts</p>
+              </a>
+              <a href="/admin/settings" class="block p-4 bg-purple-50 rounded-lg hover:bg-purple-100">
+                <h3 class="font-medium text-purple-700">System Settings</h3>
+                <p class="text-sm text-purple-500">Configure system preferences</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
