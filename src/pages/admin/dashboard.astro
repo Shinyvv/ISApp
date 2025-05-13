@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AuthGuard } from '../../components/shared/AuthGuard';
+---
+
+<Layout>
+  <AuthGuard client:load requiredRole="admin">
+    <div class="min-h-screen bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Admin Dashboard</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">User Statistics</h2>
+            <p class="text-gray-600">Total Users: 100</p>
+            <p class="text-gray-600">Active Users: 75</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">System Status</h2>
+            <p class="text-green-600">All systems operational</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Recent Activity</h2>
+            <ul class="space-y-2">
+              <li class="text-gray-600">New user registration</li>
+              <li class="text-gray-600">Content update</li>
+              <li class="text-gray-600">System backup completed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </AuthGuard>
+</Layout>
