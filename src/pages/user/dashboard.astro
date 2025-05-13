@@ -1,13 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { AuthGuard } from '../../components/shared/AuthGuard';
-import { UserNavbar } from '../../components/user/UserNavbar';
+import AuthGuard from '../../components/shared/AuthGuard.astro';
+import UserNavbar from '../../components/user/UserNavbar.astro';
 ---
 
 <Layout>
-  <AuthGuard client:load requiredRole="user">
+  <AuthGuard requiredRole="user">
     <div class="min-h-screen bg-gray-50">
-      <UserNavbar client:load />
+      <UserNavbar />
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 class="text-2xl font-bold text-gray-900 mb-8">Welcome Back!</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

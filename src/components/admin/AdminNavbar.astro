@@ -1,0 +1,28 @@
+---
+---
+<nav class="bg-gray-900 text-white p-4">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="text-xl font-bold">Admin Panel</div>
+    <div class="flex items-center space-x-6">
+      <a href="/admin/users" class="flex items-center space-x-2 hover:text-gray-300">
+        <span>Users</span>
+      </a>
+      <a href="/admin/settings" class="flex items-center space-x-2 hover:text-gray-300">
+        <span>Settings</span>
+      </a>
+      <button
+        id="logout-btn"
+        class="flex items-center space-x-2 text-red-400 hover:text-red-300"
+      >
+        <span>Logout</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.getElementById('logout-btn')?.addEventListener('click', () => {
+    localStorage.clear();
+    window.location.href = '/login';
+  });
+</script>

@@ -1,0 +1,18 @@
+---
+const { requiredRole } = Astro.props;
+
+if (Astro.cookies.get('token').value === undefined) {
+  return Astro.redirect('/login');
+}
+
+const userDataStr = Astro.cookies.get('user').value;
+if (!userDataStr) {
+  return Astro.redirect('/login');
+}
+
+const userData = JSON.parse(userDataStr);
+if (requiredRole && userData.role !== requiredRole) {
+  return Astro.redirect(`/${userData.role}/dashboard`);
+}
+---
+<slot />
