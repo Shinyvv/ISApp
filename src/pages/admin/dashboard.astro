@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import AuthGuard from '../../components/shared/AuthGuard.astro';
 import AdminNavbar from '../../components/admin/AdminNavbar.astro';
+import StatsPanel from '../../components/admin/StatsPanel.astro';
 ---
 
 <Layout title="Admin Dashboard">
@@ -11,19 +12,7 @@ import AdminNavbar from '../../components/admin/AdminNavbar.astro';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 class="text-3xl font-bold text-gray-900 mb-8">Admin Dashboard</h1>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-semibold mb-4">User Statistics</h2>
-            <div class="space-y-4">
-              <div class="p-4 bg-blue-50 rounded-lg">
-                <p class="text-lg font-medium text-blue-800">Total Users: 100</p>
-                <p class="text-sm text-blue-600">Active Users: 75</p>
-              </div>
-              <div class="p-4 bg-green-50 rounded-lg">
-                <p class="text-lg font-medium text-green-800">New Users Today: 5</p>
-                <p class="text-sm text-green-600">Growth Rate: +2.5%</p>
-              </div>
-            </div>
-          </div>
+          <StatsPanel />
           <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold mb-4">Quick Actions</h2>
             <div class="space-y-4">

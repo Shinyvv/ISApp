@@ -1,0 +1,22 @@
+---
+const monthlyData = [65, 59, 80, 81, 56, 55];
+const months = ['January', 'February', 'March', 'April', 'May', 'June'];
+---
+
+<div class="bg-white p-6 rounded-lg shadow-lg">
+  <h2 class="text-xl font-semibold mb-4">User Statistics</h2>
+  <div class="space-y-4">
+    <div class="grid grid-cols-2 gap-4">
+      {monthlyData.map((value, index) => (
+        <div class="p-4 bg-blue-50 rounded-lg">
+          <p class="text-sm font-medium text-blue-800">{months[index]}</p>
+          <p class="text-lg text-blue-600">{value} Users</p>
+        </div>
+      ))}
+    </div>
+    <div class="p-4 bg-green-50 rounded-lg">
+      <p class="text-lg font-medium text-green-800">Total Active Users</p>
+      <p class="text-2xl text-green-600">{monthlyData.reduce((a, b) => a + b, 0)}</p>
+    </div>
+  </div>
+</div>
