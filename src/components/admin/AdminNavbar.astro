@@ -6,15 +6,7 @@
     <div class="flex items-center space-x-6">
       <a href="/admin/users" class="hover:text-gray-300">Users</a>
       <a href="/admin/settings" class="hover:text-gray-300">Settings</a>
-      <button id="logout-btn" class="text-red-400 hover:text-red-300">Logout</button>
+      <a href="/" class="text-red-400 hover:text-red-300">Home</a>
     </div>
   </div>
 </nav>
-
-<script>
-  document.getElementById('logout-btn')?.addEventListener('click', () => {
-    document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT';
-    document.cookie = 'user=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT';
-    window.location.href = '/login';
-  });
-</script>

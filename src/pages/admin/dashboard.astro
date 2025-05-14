@@ -1,33 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import AuthGuard from '../../components/shared/AuthGuard.astro';
 import AdminNavbar from '../../components/admin/AdminNavbar.astro';
 import StatsPanel from '../../components/admin/StatsPanel.astro';
 ---
 
 <Layout title="Admin Dashboard">
-  <AuthGuard requiredRole="admin">
-    <div class="min-h-screen bg-gray-100">
-      <AdminNavbar />
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-8">Admin Dashboard</h1>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <StatsPanel />
-          <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold mb-4">Quick Actions</h2>
-            <div class="space-y-4">
-              <a href="/admin/users" class="block p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100">
-                <h3 class="font-medium text-indigo-700">Manage Users</h3>
-                <p class="text-sm text-indigo-500">View and manage user accounts</p>
-              </a>
-              <a href="/admin/settings" class="block p-4 bg-purple-50 rounded-lg hover:bg-purple-100">
-                <h3 class="font-medium text-purple-700">System Settings</h3>
-                <p class="text-sm text-purple-500">Configure system preferences</p>
-              </a>
-            </div>
+  <div class="min-h-screen bg-gray-100">
+    <AdminNavbar />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-8">Admin Dashboard</h1>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <StatsPanel />
+        <div class="bg-white rounded-lg shadow p-6">
+          <h2 class="text-xl font-semibold mb-4">Quick Actions</h2>
+          <div class="space-y-4">
+            <a href="/admin/users" class="block p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100">
+              <h3 class="font-medium text-indigo-700">Manage Users</h3>
+              <p class="text-sm text-indigo-500">View and manage user accounts</p>
+            </a>
+            <a href="/admin/settings" class="block p-4 bg-purple-50 rounded-lg hover:bg-purple-100">
+              <h3 class="font-medium text-purple-700">System Settings</h3>
+              <p class="text-sm text-purple-500">Configure system preferences</p>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </AuthGuard>
+  </div>
 </Layout>
