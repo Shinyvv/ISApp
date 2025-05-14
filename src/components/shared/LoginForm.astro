@@ -3,8 +3,7 @@
 <div class="min-h-screen bg-gray-100 flex items-center justify-center">
   <div class="max-w-md w-full bg-white rounded-lg shadow-md p-8">
     <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
-    <div id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-    </div>
+    <div id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4"></div>
     <form id="login-form">
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
@@ -44,10 +43,10 @@
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    errorMessage?.classList.add('hidden');
+    if (errorMessage) errorMessage.classList.add('hidden');
 
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const password = (document.getElementById('password') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement)?.value;
+    const password = (document.getElementById('password') as HTMLInputElement)?.value;
 
     try {
       const response = await fetch('/api/login', {
@@ -60,15 +59,17 @@
 
       const { user, token } = await response.json();
       
-      // Store auth data
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('token', token);
+      // Store auth data in cookies
+      document.cookie = `token=${token}; path=/`;
+      document.cookie = `user=${JSON.stringify(user)}; path=/`;
       
       // Redirect based on role
       window.location.href = `/${user.role}/dashboard`;
     } catch (err) {
-      errorMessage?.classList.remove('hidden');
-      errorMessage!.textContent = 'Invalid email or password';
+      if (errorMessage) {
+        errorMessage.classList.remove('hidden');
+        errorMessage.textContent = 'Invalid email or password';
+      }
     }
   });
 </script>

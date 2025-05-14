@@ -4,7 +4,7 @@ import AuthGuard from '../../components/shared/AuthGuard.astro';
 import AdminNavbar from '../../components/admin/AdminNavbar.astro';
 ---
 
-<Layout>
+<Layout title="Admin Dashboard">
   <AuthGuard requiredRole="admin">
     <div class="min-h-screen bg-gray-100">
       <AdminNavbar />

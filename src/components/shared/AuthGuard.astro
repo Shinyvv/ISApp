@@ -1,15 +1,19 @@
 ---
 const { requiredRole } = Astro.props;
 
-if (Astro.cookies.get('token').value === undefined) {
+// Check if user is authenticated
+const token = Astro.cookies.get('token')?.value;
+if (!token) {
   return Astro.redirect('/login');
 }
 
-const userDataStr = Astro.cookies.get('user').value;
+// Get user data from cookie
+const userDataStr = Astro.cookies.get('user')?.value;
 if (!userDataStr) {
   return Astro.redirect('/login');
 }
 
+// Parse user data and check role
 const userData = JSON.parse(userDataStr);
 if (requiredRole && userData.role !== requiredRole) {
   return Astro.redirect(`/${userData.role}/dashboard`);

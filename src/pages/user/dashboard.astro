@@ -4,7 +4,7 @@ import AuthGuard from '../../components/shared/AuthGuard.astro';
 import UserNavbar from '../../components/user/UserNavbar.astro';
 ---
 
-<Layout>
+<Layout title="User Dashboard">
   <AuthGuard requiredRole="user">
     <div class="min-h-screen bg-gray-50">
       <UserNavbar />

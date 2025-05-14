@@ -4,25 +4,17 @@
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     <div class="text-xl font-bold">User Dashboard</div>
     <div class="flex items-center space-x-6">
-      <a href="/user/profile" class="flex items-center space-x-2 hover:text-gray-200">
-        <span>Profile</span>
-      </a>
-      <a href="/user/activity" class="flex items-center space-x-2 hover:text-gray-200">
-        <span>Activity</span>
-      </a>
-      <button
-        id="logout-btn"
-        class="flex items-center space-x-2 text-red-200 hover:text-red-100"
-      >
-        <span>Logout</span>
-      </button>
+      <a href="/user/profile" class="hover:text-gray-200">Profile</a>
+      <a href="/user/activity" class="hover:text-gray-200">Activity</a>
+      <button id="logout-btn" class="text-red-200 hover:text-red-100">Logout</button>
     </div>
   </div>
 </nav>
 
 <script>
   document.getElementById('logout-btn')?.addEventListener('click', () => {
-    localStorage.clear();
+    document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT';
+    document.cookie = 'user=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT';
     window.location.href = '/login';
   });
 </script>
